@@ -5,7 +5,7 @@ import Header from './pages/Header';
 
 ReactDOM.render( 
   <React.StrictMode>
-    <Header title="Meu User App" />
+    <Header title="WEB SERVICE" />
     <App />
     </React.StrictMode>,
     document.getElementById('root')

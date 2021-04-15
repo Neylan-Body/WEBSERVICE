@@ -2,15 +2,6 @@ const express = require('express');
 const routes = require('./routes');
 const cors = require('cors');
 
-// const sqlite3 = require('sqlite3').verbose();
-
-// let db = new sqlite3.Database('db.sqlite', (err) => {
-//     if (err) {
-//         return console.error(error.message)
-//     }
-//     console.log('conectado com sucesso!!!');
-// })
-
 const app = express();
 
 app.use(cors());

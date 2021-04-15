@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = express.Router();
 const UserController = require('./controller/UserController');
+
 // GET: buscar/listar uma informação no backend
 // POST: Criar uma informação no backend
 // PUT: Alterar uma informação no backend

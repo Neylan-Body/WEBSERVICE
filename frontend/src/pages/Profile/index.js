@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {Link, useHistory, useParams} from 'react-router-dom';
 import './style.css';
-import api from '../../services/api';
+import WebServices from '../../services/WebServices';
 
 export default function Profile(){
     const {id} = useParams();
@@ -16,7 +16,8 @@ export default function Profile(){
 
     useEffect(()=>{
         if(id){
-            api.get(`/users/${id}`).then(response=>{
+            WebServices.get(`/users/${id}`).then(response=>{
+                //...response (é spread)
                 setUser(...response.data)
             })
         }
@@ -26,7 +27,7 @@ export default function Profile(){
         e.preventDefault();
         const method = id ? 'put' : 'post';
         const url = id ? `/users/${id}` : '/users/';
-        api[method](url, user).then((response)=>{
+        WebServices[method](url, user).then((response)=>{
             history.push('/');
         })
     }
