@@ -11,6 +11,7 @@ export default function Profile(){
         email: '',
         idade: 0,
         empresa: '',
+        created_at: '',
     }
     const [user, setUser] = useState(initUser);
 
@@ -25,6 +26,7 @@ export default function Profile(){
 
     function onSubmit(e){
         e.preventDefault();
+        user.created_at = Date();
         const method = id ? 'put' : 'post';
         const url = id ? `/users/${id}` : '/users/';
         WebServices[method](url, user).then((response)=>{
@@ -48,6 +50,7 @@ export default function Profile(){
                 <input name="idade" onChange={onChange} value={user.idade}/>
                 <strong>Empresa:</strong>
                 <input name="empresa" onChange={onChange} value={user.empresa}/>
+                <input type="hidden" name="created_at" onChange={onChange} value={user.created_at}/>
                 <div className="actions">
                     <Link onClick={()=>history.push('/')} className="button">Voltar</Link>
                     <button className="button" type="submit">Salvar</button>

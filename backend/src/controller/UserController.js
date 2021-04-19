@@ -13,7 +13,7 @@ module.exports = {
         return res.json(user);
     },
     async create(req, res) {
-        const { name, email, idade, empresa } = req.body
+        const { name, email, idade, empresa, created_at} = req.body
         //aleatorio de 4 bytes
         const id = crypto.randomBytes(4).toString('HEX');
         await connection('users').insert({
@@ -21,7 +21,8 @@ module.exports = {
             name,
             email,
             idade,
-            empresa
+            empresa,
+            created_at,
         })
         return res.json({ id })
     },
@@ -29,13 +30,14 @@ module.exports = {
         //parametros da url
         const { id } = req.params
         //parametros do form
-        const { name, email, idade, empresa } = req.body
+        const { name, email, idade, empresa, created_at} = req.body
         await connection('users').where('id', id).update({
             id,
             name,
             email,
             idade,
-            empresa
+            empresa,
+            created_at,
         })
         //indica que a solicitação foi bem sucedida e o cliente não precisa sair da página atual.
         return res.status(204).send();

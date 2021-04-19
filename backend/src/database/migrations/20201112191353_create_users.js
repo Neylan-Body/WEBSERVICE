@@ -5,6 +5,7 @@ exports.up = function(knex) {
         table.string('email').notNullable();
         table.string('idade');
         table.string('empresa');
+        table.timestamp('created_at');
     })
 };
 
