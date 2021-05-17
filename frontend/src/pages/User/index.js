@@ -3,6 +3,7 @@ import WebServices from '../../services/WebServices';
 import {Link, useHistory} from 'react-router-dom';
 import './style.css';
 
+
 export default function User(){
     const [users, setUsers] = useState([]);
     useEffect(()=>{
@@ -36,6 +37,8 @@ export default function User(){
                             <p>{user.idade}</p>
                             <strong>Empresa</strong>
                             <p>{user.empresa}</p>
+                            <strong>Data da criação</strong>
+                            <p>{user.created_at}</p>
                             <div className="actions">
                                 <button className="button" type="button" onClick={()=>handleDelete(user.id)}>Deletar</button>
                                 <Link className="button"onClick={()=>history.push(`/update/${user.id}`)}>Editar</Link>
